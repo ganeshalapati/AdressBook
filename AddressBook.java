@@ -115,6 +115,11 @@ public class AddressBook {
 
 			 AddressBook user1 = new  AddressBook();  //usecase 1 displainf contact book for user
 			 user1.display();
+			 
+			 AddressBook user2 = new  AddressBook();
+			 System.out.println("details of user 2 is");
+			 user2.display();
+			
 		}
 					
 
