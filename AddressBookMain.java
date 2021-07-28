@@ -134,6 +134,13 @@ public class AddressBookMain {
 	            }
 	        }
 	    }
+	    //method to delete contacs in AddressBook
+	    public void deleteContact(ArrayList<ContactItems> contactList) 
+	    {
+	        System.out.println("Enter the first name of the contact you wish to delete");
+	        String delete = sc.next();
+	        contactList.removeIf(contactItems -> contactItems.firstName.equals(delete));   
+	    }
 
 	 	// method to show conatctList in addressBook
 	      public void addContactList() {
@@ -141,6 +148,7 @@ public class AddressBookMain {
 	            System.out.println("Press 0 - Display all contacts");
 	            System.out.println("Press 1 - Add contact");
 	            System.out.println("Press 2 - Edit contact");
+	            System.out.println("press 3 -delete contact");
 	            System.out.println("Press 6 - Exit");
 	            int option = sc.nextInt();
 	            sc.nextLine();
@@ -149,12 +157,11 @@ public class AddressBookMain {
 	                case 0 -> display(contactList);
 	                case 1 -> addContact(null, contactList);
 	                case 2 -> editContact();
+	                case 3 -> deleteContact(contactList);
+
 	            }
 	            if (option == 6) {
 	                break;
 	            }
-	        }
-	    }
-	
-
-}
+	        }}}
+	   
