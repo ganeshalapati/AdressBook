@@ -156,17 +156,35 @@ public class ContactFunctions {
         else
             return false;
     }
-    /* Check Duplicate Entry bu using set 
-     * if first name in the contactLits is same
-     */
-    public void checkDuplicate() {
-        Set<String> ContactSet = new HashSet<>();
-        Set<ContactItems> filterSet = contactList.stream().filter(n -> !ContactSet.add(n.getFirstName())).collect(Collectors.toSet());
 
-        for (ContactItems contact : filterSet) {
-            System.out.println("The Duplicate Contact is: " + contact.getFirstName() );
-        }
+/* Check Duplicate Entry bu using set 
+ * if first name in the contactLits is same
+ */
+public void checkDuplicate() {
+    Set<String> ContactSet = new HashSet<>();
+    Set<ContactItems> filterSet = contactList.stream().filter(n -> !ContactSet.add(n.getFirstName())).collect(Collectors.toSet());
 
-
+    for (ContactItems contact : filterSet) {
+        System.out.println("The Duplicate Contact is: " + contact.getFirstName() );
     }
+
+
+}
+// Get Person Name by State
+public void getPersonNameByState(String State) {
+    List<ContactItems> list  = contactList.stream().filter(p ->p.getState().equals(State)).collect(Collectors.toList());
+    for(ContactItems contact: list){
+        System.out.println("First Name: "+contact.getFirstName());
+        System.out.println("Last Name: "+contact.getLastName());
+    }
+
+}
+// Get Person Name by city
+public void getPersonNameByCity(String cityName) {
+    List<ContactItems> list  = contactList.stream().filter(p ->p.getCity().equals(cityName)).collect(Collectors.toList());
+    for(ContactItems contact: list){
+        System.out.println("First Name: "+contact.getFirstName());
+        System.out.println("Last Name: "+contact.getLastName());
+    }
+}
 }
